@@ -10,7 +10,7 @@ jobs:
     steps:
       
 name: Send Discord Notification
-      uses: peter-evans/discord-webhook-action@v1
+      uses: Danylo
       with:
         webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
         message: |PR Title: ${{ github.event.pull_request.title }}PR URL: ${{ github.event.pull_request.html_url }}Action: ${{ github.event.action }}User: ${{ github.event.pull_request.user.login }}env:
