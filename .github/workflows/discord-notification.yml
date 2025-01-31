@@ -1,0 +1,17 @@
+name: Discord Notification on PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      
+name: Send Discord Notification
+      uses: Danylo
+      with:
+        webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        message: |PR Title: ${{ github.event.pull_request.title }}PR URL: ${{ github.event.pull_request.html_url }}Action: ${{ github.event.action }}User: ${{ github.event.pull_request.user.login }}env:
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
